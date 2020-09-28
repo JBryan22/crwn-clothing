@@ -1,8 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: "Open Sans Condensed", sans-serif;
   padding: 20px 60px;
 }
 
@@ -31,7 +34,7 @@ a {
   grid-column: 1 / -1;
 }
 
-@media screen and (min-width:540px) {
+@media screen and (min-width: 540px) {
   .sm-gs-1 {
     grid-column: auto / span 1;
   }
@@ -49,7 +52,7 @@ a {
   }
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width: 768px) {
   .md-gs-1 {
     grid-column: auto / span 1;
   }
@@ -67,7 +70,7 @@ a {
   }
 }
 
-@media screen and (min-width:960px) {
+@media screen and (min-width: 960px) {
   .lg-gs-1 {
     grid-column: auto / span 1;
   }
