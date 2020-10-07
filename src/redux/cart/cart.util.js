@@ -19,18 +19,13 @@ export const removeItemFromCart = (cartItems, cartItemToRemove) => {
     (cartItem) => cartItem.id === cartItemToRemove.id
   );
 
-  if (existingCartItem) {
-    cartItems.map((cartItem) =>
-      cartItem.id === cartItemToRemove.id ? (cartItem.quantity -= 1) : cartItem
+  if (existingCartItem && existingCartItem.quantity === 1) {
+    return cartItems.filter((item) => item.id !== existingCartItem.id);
+  } else {
+    return cartItems.map((cartItem) =>
+      cartItem.id === cartItemToRemove.id
+        ? { ...cartItem, quantity: cartItem.quantity - 1 }
+        : cartItem
     );
-
-    const indexOfEmptyItem = cartItems.findIndex(
-      (cartItem) => cartItem.quantity === 0
-    );
-
-    cartItems = [
-      ...cartItems.slice(0, indexOfEmptyItem),
-      ...cartItems.slice(indexOfEmptyItem + 1),
-    ];
   }
 };
